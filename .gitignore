@@ -1,0 +1,22 @@
+# Security / Environment Variables
+.env
+.secret
+
+# Python Cache & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+search_env/
+
+# Raw Data Files (Too large for GitHub)
+*.jsonl.gz
+*.csv
+*.json
+data/
+
+# OS Generated Files
+.DS_Store
+Thumbs.db

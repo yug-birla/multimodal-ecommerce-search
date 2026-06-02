@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # 1. Our Custom AI Search App
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - qdrant
+      - redis
+    environment:
+      - QDRANT_HOST=qdrant
+      - REDIS_HOST=redis
+      - GEMINI_API_KEY=AIzaSyCs02mJQ3yNhBSTqjzS1TzOwkKR3q_Z1B0  # <-- ADD THIS!
+    volumes:
+      # Mount our Hugging Face cache so it doesn't download models every single reboot
+      - ~/.cache/huggingface:/root/.cache/huggingface
+
+  # 2. The Vector Database
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+    volumes:
+      # Persist our 80k vectors on our hard drive!
+      - qdrant_storage:/qdrant/storage
+
+  # 3. The Enterprise Cache
+  redis:
+    image: redis:alpine
+    ports:
+      - "6380:6379" 
+
+volumes:
+  qdrant_storage:
+

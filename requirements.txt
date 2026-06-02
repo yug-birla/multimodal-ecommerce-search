@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+qdrant-client
+redis
+transformers==4.41.2
+torch
+pydantic
+python-dotenv
+python-multipart
+Pillow
