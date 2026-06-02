@@ -12,7 +12,7 @@ services:
     environment:
       - QDRANT_HOST=qdrant
       - REDIS_HOST=redis
-      - GEMINI_API_KEY=AIzaSyCs02mJQ3yNhBSTqjzS1TzOwkKR3q_Z1B0  # <-- ADD THIS!
+      - GEMINI_API_KEY=Enter_Your_API_KEY  # <-- ADD THIS!
     volumes:
       # Mount our Hugging Face cache so it doesn't download models every single reboot
       - ~/.cache/huggingface:/root/.cache/huggingface
